@@ -14,74 +14,81 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="cearch-box">
-        <br />
-
-        <form id="search-form">
-          <div class="row">
-            <div class="col-6">
-              <input
-                type="text"
-                placeholder="Enter a city.."
-                class="form-control"
-                autofocus="on"
-                outocomplete="off"
-                id="city-input"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="btn btn-primary"
-                id="search-button"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Current"
-                class="btn btn-success"
-                id="current-button"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <br />
-      <div class="city">
-        <h1 id="city"></h1>
-      </div>
-
-      <h6 id="date"></h6>
-      <div class="row">
-        <div class="col-4">
+    <div class="border">
+      <div class="container">
+        <div class="cearch-box">
           <br />
-          <div>
-            <span class="temperature" id="temperature"> </span
-            ><span class="units"> <a href="#" id="celsius-link">°C </a> </span>
+
+          <form id="search-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  placeholder="Enter a city.."
+                  class="form-control"
+                  autofocus="on"
+                  outocomplete="off"
+                  id="city-input"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary"
+                  id="search-button"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Current"
+                  class="btn btn-success"
+                  id="current-button"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <br />
+        <div class="city">
+          <h1 id="city"></h1>
+        </div>
+
+        <h6 id="date"></h6>
+        <div class="row">
+          <div class="col-4">
+            <br />
+            <div>
+              <span class="temperature" id="temperature"> </span
+              ><span class="units">
+                <a href="#" id="celsius-link">°C </a>
+              </span>
+            </div>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4">
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
           </div>
         </div>
-        <div class="col-4"></div>
-        <div class="col-4">
-          <ul>
-            <li>Humidity: <span id="humidity"></span>%</li>
-            <li>Wind: <span id="wind"></span> km/h</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-4">
-          Feels like <span class="feels-like" id="feels-like"></span>°C
+        <div class="row">
+          <div class="col-4">
+            Feels like <span class="feels-like" id="feels-like"></span>°C
+          </div>
         </div>
       </div>
     </div>
-    <br />
+
     <div>
       <small
-        ><a href="https://github.com/Folesia/weather-app" target="_blank"
+        ><a
+          href="https://github.com/Folesia/weather-app"
+          class="open-source"
+          target="_blank"
           >Open-source code</a
         ></small
       >

@@ -2,17 +2,33 @@ body {
   background: #fffcea;
 }
 
-.city {
-  color: rgb(47, 89, 144);
-}
-
 li {
   list-style-type: none;
 }
+
+.border {
+  border: 2px solid #ffff00;
+  padding: 20px 40px;
+  margin: 20px 400px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.open-source {
+  text-decoration: none;
+}
+
+.open-source:hover {
+  text-decoration: underline;
+}
+
 #celsius-link {
   text-decoration: none;
 }
 
+.city {
+  color: rgb(47, 89, 144);
+}
 .temperature {
   font-size: 45px;
   font-weight: 400;
