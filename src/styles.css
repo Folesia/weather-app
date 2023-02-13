@@ -9,13 +9,14 @@ li {
 .border {
   border: 2px solid #ffff00;
   padding: 20px 40px;
-  margin: 20px 400px;
+  margin: 20px 400px 5px 400px;
   text-align: center;
   border-radius: 6px;
 }
 
 .open-source {
   text-decoration: none;
+  margin-left: 400px;
 }
 
 .open-source:hover {
