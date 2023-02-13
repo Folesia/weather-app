@@ -1,0 +1,30 @@
+body {
+  background: #fffcea;
+}
+
+.city {
+  color: rgb(47, 89, 144);
+}
+
+li {
+  list-style-type: none;
+}
+#celsius-link {
+  text-decoration: none;
+}
+
+.temperature {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.units {
+  position: relative;
+  top: -20px;
+  text-decoration: none;
+}
+
+.units:hover {
+  text-decoration: underline;
+}
