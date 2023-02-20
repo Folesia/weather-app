@@ -50,7 +50,6 @@ feelsLikeElement.innerHTML=Math.round(response.data.main.feels_like);
 
 function searchCity(city) {
   let apiKey = "a10a99110c9b74eeb49e3f0430acbc06";
- 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
  
@@ -80,6 +79,8 @@ function displayCelsiusTemperature(event){
   temperatureElement.innerHTML= Math.round(celsiusTemperature);
 }
 
+searchCity("Winnipeg");
+
 let celsiusTemperature=null;
 
  let searchButton = document.querySelector("#search-form");
@@ -90,5 +91,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-searchCity("Winnipeg");
