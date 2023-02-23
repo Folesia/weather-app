@@ -31,12 +31,13 @@ li:first-letter{
 } 
 
 .weather-app {
-background: #fffcea;
+
   max-width: 600px;
   margin: 30px auto;
 }
 
 .weather-border {
+  background: #fffcea;
   padding: 20px;
 border: 2px solid  #dadde1;
 border-radius: 5px;
@@ -48,14 +49,15 @@ border-radius: 5px;
 
 
 
-.open-source {
+/* .open-source {
   text-decoration: none;
   
 }
 
 .open-source:hover {
   text-decoration: underline;
-}
+  
+}  */
 
 .city {
   color: rgb(47, 89, 144);
