@@ -30,8 +30,21 @@ let days=["Sun", "Mon", "Tue", "Wed","Thu", "Fri", "Sat"];
 return days[day];
 }
 
+function formatTime(formatTime){
+  let date = new Date(formatTime);
+let hours = date.getHours();
+if (hours < 10) {
+  hours = `0${hours}`;
+}
+let minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+return `${hours}:${minutes}`;
+}
+
 function displayForecast(response) {
- 
+ console.log(response.data.list);
   let forecast = response.data.list;
 
   let forecastElement = document.querySelector("#forecast");
@@ -45,15 +58,22 @@ function displayForecast(response) {
   
     <div class="col-2">
       <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+      <div class="weather-forecast-time">${formatTime(forecastDay.dt_txt)}</div>
        <img
-        src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+        src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"
         alt=""
         class=""
         width="42"
       />
       <div class="weather-forecast-temperature">
-        <span class="weather-forecast-temperature-max">${Math.round(forecastDay.main.temp_max)}° </span>
-        <span class="weather-forecast-temperature-min">${Math.round(forecastDay.main.temp_min)}° </span>
+        <span class="weather-forecast-temperature-max">${Math.round(
+          forecastDay.main.temp_max
+        )}° </span>
+        <span class="weather-forecast-temperature-min">${Math.round(
+          forecastDay.main.temp_min
+        )}° </span>
       </div>
     </div>
     `;
@@ -64,14 +84,12 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "a10a99110c9b74eeb49e3f0430acbc06";
   let apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -108,8 +126,7 @@ function searchCity(city) {
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
-  console.log(cityInputElement.value);
-  searchCity(cityInputElement.value);
+   searchCity(cityInputElement.value);
 }
 
 function displayFahrenheitTemperature(event) {
