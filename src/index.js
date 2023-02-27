@@ -22,7 +22,8 @@ let date=new Date(timestamp);
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast(){
+function displayForecast(response){
+  console.log(response.data.list);
   let forecastElement=document.querySelector("#forecast");
 
 let forecastHTML=`<div class="row">`;
@@ -47,6 +48,13 @@ forecastHTML=forecastHTML+`
 });
    forecastHTML=forecastHTML+`</div>`
   forecastElement.innerHTML=forecastHTML;
+}
+
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "a10a99110c9b74eeb49e3f0430acbc06";
+  let apiUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -76,6 +84,9 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 feelsLikeElement.innerHTML=Math.round(response.data.main.feels_like);
+
+getForecast(response.data.coord);
+
 }
 
 function searchCity(city) {
@@ -121,4 +132,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Winnipeg");
-displayForecast();
