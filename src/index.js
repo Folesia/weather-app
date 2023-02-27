@@ -22,6 +22,33 @@ let date=new Date(timestamp);
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast(){
+  let forecastElement=document.querySelector("#forecast");
+
+let forecastHTML=`<div class="row">`;
+let days=["Sun", "Mon", "Tue", "Wed" ];
+days.forEach(function(day){
+forecastHTML=forecastHTML+`
+  
+    <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img
+        src="http://openweathermap.org/img/wn/50d@2x.png"
+        alt=""
+        class=""
+        width="42"
+      />
+      <div class="weather-forecast-temperature">
+        <span class="weather-forecast-temperature-max">18° </span>
+        <span class="weather-forecast-temperature-min">12° </span>
+      </div>
+    </div>
+    `;
+});
+   forecastHTML=forecastHTML+`</div>`
+  forecastElement.innerHTML=forecastHTML;
+}
+
 function showWeather(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -32,6 +59,9 @@ function showWeather(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
   let feelsLikeElement = document.querySelector("#feels-like");
+
+
+
   celsiusTemperature=response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
@@ -79,8 +109,6 @@ function displayCelsiusTemperature(event){
   temperatureElement.innerHTML= Math.round(celsiusTemperature);
 }
 
-searchCity("Winnipeg");
-
 let celsiusTemperature=null;
 
  let searchButton = document.querySelector("#search-form");
@@ -91,3 +119,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchCity("Winnipeg");
+displayForecast();
